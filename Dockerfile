@@ -1,17 +1,17 @@
-FROM ubuntu:trusty
+FROM ubuntu:16.04
 
-ARG QT=5.7.1
-ARG QTM=5.7
-ARG QTSHA=fdf6b4fb5ee9ade2dec74ddb5bea9e1738911e7ee333b32766c4f6527d185eb4
+ARG QT=5.10.1
+ARG QTM=5.10
+ARG QTSHA=d89ceb235e46a41240ffddd1fed558d32a27e8d10b4efa7c9b2541cc5bdb4ee6
 ARG VCS_REF
 ARG BUILD_DATE
 
 LABEL org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.name="qt-build" \
       org.label-schema.description="A headless Qt $QTM build environment for Ubuntu" \
-      org.label-schema.url="e.g. https://github.com/garthk/qt-build" \
+      org.label-schema.url="e.g. https://github.com/TeamWertarbyte/qt-build" \
       org.label-schema.vcs-ref="$VCS_REF" \
-      org.label-schema.vcs-url="https://github.com/garthk/qt-build.git" \
+      org.label-schema.vcs-url="https://github.com/TeamWertarbyte/qt-build.git" \
       org.label-schema.version="$QT" \
       org.label-schema.schema-version="1.0"
 
@@ -25,12 +25,13 @@ RUN apt-get update -q && \
         libfontconfig1 \
         libice6 \
         libsm6 \
-        libX11-xcb1 \
         libxext6 \
         libxrender1 \
         openssh-client \
         p7zip \
         xvfb \
+        libgl1-mesa-dev \
+        libglu1-mesa-dev \
     && apt-get clean
 
 ADD qt-installer-noninteractive.qs /tmp/qt/script.qs
@@ -45,4 +46,4 @@ RUN echo "${QTSHA}  /tmp/qt/installer.run" | shasum -a 256 -c \
 RUN echo /opt/qt/${QTM}/gcc_64/lib > /etc/ld.so.conf.d/qt-${QTM}.conf
 RUN locale-gen en_US.UTF-8 && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/qt/${QTM}/gcc_64/bin
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/qt/${QT}/gcc_64/bin

@@ -10,7 +10,7 @@ function Controller() {
 }
 
 Controller.prototype.WelcomePageCallback = function() {
-    gui.clickButton(buttons.NextButton);
+    gui.clickButton(buttons.NextButton, 1000); // wait for fetching remote sources
 }
 
 Controller.prototype.CredentialsPageCallback = function() {
@@ -31,9 +31,9 @@ Controller.prototype.ComponentSelectionPageCallback = function() {
     var widget = gui.currentPageWidget();
 
     widget.deselectAll();
-    widget.selectComponent("qt.57.gcc_64");
+    widget.selectComponent("qt.qt5.5101.gcc_64");
     // to add more components:
-    // widget.selectComponent("qt.57.qtwebengine");
+    // widget.selectComponent("qt.qt5.5101.qtwebengine");
 
     gui.clickButton(buttons.NextButton);
 }
