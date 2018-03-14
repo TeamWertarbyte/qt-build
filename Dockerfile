@@ -32,12 +32,13 @@ RUN apt-get update -q && \
         xvfb \
         libgl1-mesa-dev \
         libglu1-mesa-dev \
+        locales \
+        wget \
     && apt-get clean
 
 ADD qt-installer-noninteractive.qs /tmp/qt/script.qs
-ADD http://download.qt.io/official_releases/qt/${QTM}/${QT}/qt-opensource-linux-x64-${QT}.run /tmp/qt/installer.run
-
-RUN echo "${QTSHA}  /tmp/qt/installer.run" | shasum -a 256 -c \
+RUN wget -q http://download.qt.io/official_releases/qt/${QTM}/${QT}/qt-opensource-linux-x64-${QT}.run -O /tmp/qt/installer.run \
+    && echo "${QTSHA}  /tmp/qt/installer.run" | shasum -a 256 -c \
     && chmod +x /tmp/qt/installer.run \
     && xvfb-run /tmp/qt/installer.run --script /tmp/qt/script.qs \
      | egrep -v '\[[0-9]+\] Warning: (Unsupported screen format)|((QPainter|QWidget))' \
