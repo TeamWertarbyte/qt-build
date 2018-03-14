@@ -1,20 +1,20 @@
 # qt-build
 
-A headless [Qt] 5.7 build environment for Ubuntu, tested with
-[14.04.4 LTS (Trusty Tahr)][trusty].
+A headless [Qt] 5.10.1 build environment for Ubuntu, based on
+[16.04 LTS (Xenial Xerus)][xenial].
 
-[![](https://images.microbadger.com/badges/image/garthk/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/garthk/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/wertarbyte/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/wertarbyte/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own version badge on microbadger.com")
 
 ## Usage
 
-* `docker pull garthk/qt-build:trusty-5.7.0`
-* `docker run -t -i --rm -v $PWD:$PWD garthk/qt-build:trusty-5.7.0 bash`
+* `docker pull wertarbyte/qt-build:xenial-5.10.1`
+* `docker run -t -i --rm -v $PWD:$PWD wertarbyte/qt-build:xenial-5.10.1 bash`
 * `qmake` in the container
 
 ## Selected Components
 
-* `qt.57.gcc_64`
+* `qt.qt5.5101.gcc_64`
 
 Edit `qt-installer-noninteractive.qs` and build your own image to add more.
 
@@ -24,7 +24,7 @@ Edit `qt-installer-noninteractive.qs` and build your own image to add more.
 
 Or:
 
-* `docker pull ubuntu:trusty`
+* `docker pull ubuntu:16.04`
 * `docker build .`
 
 Use `docker-build --build-arg` to override `QT`, `QTM`, and `QTSHA` to build
@@ -35,5 +35,5 @@ with a different version of Qt.
 * [Xian Nox][xiannox] for the Qt 5.7-beta image
 
 [Qt]: https://www.qt.io
-[trusty]: http://releases.ubuntu.com/14.04/
+[xenial]: http://releases.ubuntu.com/16.04/
 [xiannox]: https://hub.docker.com/u/xiannox
