@@ -3,8 +3,8 @@
 A headless [Qt] 5.10.1 build environment for Ubuntu, based on
 [16.04 LTS (Xenial Xerus)][xenial].
 
-[![](https://images.microbadger.com/badges/image/wertarbyte/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/wertarbyte/qt-build.svg)](https://microbadger.com/images/garthk/qt-build "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/wertarbyte/qt-build:xenial-5.10.1.svg)](https://microbadger.com/images/wertarbyte/qt-build:xenial-5.10.1 "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/wertarbyte/qt-build:xenial-5.10.1.svg)](https://microbadger.com/images/wertarbyte/qt-build:xenial-5.10.1 "Get your own version badge on microbadger.com")
 
 ## Usage
 
